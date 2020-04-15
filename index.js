@@ -51,7 +51,7 @@ function mortgageCalculator(name){
 return `${name}, your monthly rate is ${MP}`;
 
 }
-console.log(mortgageCalculator('jeff'));
+// console.log(mortgageCalculator('jeff'));
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -68,15 +68,30 @@ function mortgageCalculatorTwo(name,principal,interest, years){
     return `${name} your monthly rate is ${monthlyRate.toFixed(2)}`;
 }
 
-// console.log(mortgageCalculator('Jeff',200000,.05,30))
+// console.log(mortgageCalculatorTwo('Jeff',200000,.05,30))
 
 // 🏡 Task 5: Conditionals
 /* Add another paramter to your function called credit score. This parameter will be a number between 0 and 800 (a credit score).
 
 Then, add control flow within your function such that IF creditScore is above 740, interest rate drops by 0.5%, if credit score is below 660, interest rate increases by 0.5% and if credit score is anywhere between 660 and 740 interest rate doesn't change.
 */
+function mortgageCalculatorThree(name,principal,interest, years, score){
+    if(score >= 740){
+        let newInterest = interest - .005;
+       return mortgageCalculatorTwo(name,principal,newInterest,years);
+    }    
+    else if(score<=660){
+        let newInterest = interest + .005;
+       return mortgageCalculatorTwo(name,principal,newInterest,years);
+    }
+    else{
+      return  mortgageCalculatorTwo(name,principal,interest, years);
+    }
 
-
+}
+//console.log(mortgageCalculatorThree('jeff',200000,.05,30,800));
+//console.log(mortgageCalculatorThree('jeff',200000,.05,30,720));
+//console.log(mortgageCalculatorThree('jeff',200000,.05,30,600));
 
 
 // 🏡 Task 6: Loops
