@@ -39,15 +39,23 @@ let denominator = (Math.pow((1 +monthlyInterestRate), periods)-1);
 let monthlyPayments =  principal * (numerator / denominator);
 let MP = monthlyPayments.toFixed(2);
 
+// console.log(MP);
 
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
 
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
+function mortgageCalculator(name,principal,interest, years){
+    let monthlyInterestRate = (interest/12);
+    let periods = years*12;
+    let numerator = (monthlyInterestRate *(Math.pow((1+monthlyInterestRate), periods)));
+    let denominator  = (Math.pow((1+monthlyInterestRate),periods)-1);
+    let monthlyRate = principal * (numerator / denominator);
+    return `${name} your monthly rate is ${monthlyRate.toFixed(2)}`;
+}
 
-
-
+// console.log(mortgageCalculator('Jeff',200000,.05,30))
 
 
 // 🏡 Task 4: Arguments and Parameters
